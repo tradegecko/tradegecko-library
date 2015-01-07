@@ -1,31 +1,46 @@
 # Tradegecko::Styles
 
-TODO: Write a gem description
+Shared styles library for TradeGecko apps
+
+Examples: http://tradegecko-examples.herokuapp.com
+
 
 ## Installation
 
-Add this line to your application's Gemfile:
+For local usage using SSH:
 
 ```ruby
-gem 'tradegecko-styles'
+  gem 'tradegecko-styles', git: "git@github.com:tradegecko/tradegecko-styles.git"
 ```
 
-And then execute:
+For Heroku, use:
 
-    $ bundle
+```ruby
+  gem 'tradegecko-styles', git: "https://#{ENV['GEM_USERNAME']}:#{ENV['GEM_PASSWORD']}@github.com/tradegecko/tradegecko-styles.git"
+```
 
-Or install it yourself as:
-
-    $ gem install tradegecko-styles
+And set the appropriate heroku config ENV variables.
 
 ## Usage
 
-TODO: Write usage instructions here
+In application.scss:
 
-## Contributing
+```scss
+@import "tradegecko-styles";
+```
 
-1. Fork it ( https://github.com/[my-github-username]/tradegecko-styles/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+Or include only specific modules:
+
+```scss
+@import "tradegecko-styles/core";
+@import "tradegecko-styles/core/variables";
+```
+
+## Structure
+
+```
+└── core
+    └── variables
+    └── ...
+└── ...
+```
