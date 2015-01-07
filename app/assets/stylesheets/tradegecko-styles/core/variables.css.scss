@@ -1,95 +1,11 @@
-// Creates a linear gradient background, from top to bottom.
-//
-// $black      - TG black
-// $darkgray   - TG darkgray
-//
-// Compatible untested
-// Styleguide 1.0.1
+/* ========================================================================= */
+/*   TYPOGRAPHY
+/* ========================================================================= */
 
+$font-base:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$bg-color: #333333;
-$black:#111111;
+/* ========================================================================= */
+/*   COLORS
+/* ========================================================================= */
 
-$gray-blue: #E6E8EA;
-$palegray: #EDF0F2;
-$lightergray: #CCC;
-$darkergray: #6C7279;
-$pricingbottom: rgb(242, 245, 246);
-$gray:#999999;
-$lightgray:#e8e8e8;
-$darkgray:#2d3033;
-$middlegray:#666666;
-
-$white:white;
-
-$yellow: rgb(230, 196, 130);
-
-$blue:#5a9bf2;
-$lightblue:#D9EDF7;
-$darkblue:#2E3033;
-$helpblue:#00a2d0;
-
-$hovergreen:#f5fcf1;
-$lightgreen:#94E062;
-$green:#7BDA3D;
-$darkgreen:#60c930;
-$greentext:#4a9e24;
-$greenbtntext:#228017;
-$geckogreen: #70CF32;
-
-$borders:#E8E8E8;
-$borders2:#D6D6D6;
-$dividers:rgba(0, 0, 0, 0.1);
-$menuactive:rgba(0,0,0,0.1);
-$menuhover:rgba(0,0,0,0.1);
-$menuhighlight:rgba(110, 117, 127, 0.1);
-$highlight:#FFFDF7;
-
-$tborder:#c4c4c4;
-
-$order:#1eb1d6;
-$purchaseorder:#db6f63;
-$product:#5274cc;
-$company:#748fa6;
-$login:#57b82a;
-$important:#57b82a;
-$comment:#becc3d;
-$message:#becc3d;
-$email:#becc3d;
-
-$linkColor:          #4CAE41;
-$linkColorHover:     #39af3f;
-$link-focus-color:   false;
-$link-active-color:  false;
-$link-visited-color: false;
-
-$placeholder-color:  #bbb;
-$error-color:        #B94A48;
-
-$font-color:  $middlegray;
-$sansFontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$titleFontFamily: "Raleway", $sansFontFamily;
-
-$baseFontSize:   13px;
-$smallFontSize:   11px;
-$mediumFontSize: 16px;
-$largeFontSize: 24px;
-$hugeFontSize: 32px;
-
-$titleFontWeightLight: 100;
-
-$baseLineHeight: 18px;
-
-$iconSpritePath:          "glyphicons-halflings.png" !default;
-$iconWhiteSpritePath:     "glyphicons-halflings-white.png" !default;
-
-$sidebarColor: #F7F7F7;
-
-@mixin placeholder-color($color) {
-  &::-webkit-input-placeholder { color: $color; }
-            &:-moz-placeholder { color: $color; }
-           &::-moz-placeholder { color: $color; }
-       &:-ms-input-placeholder { color: $color; }
-}
-
-$border-radius: 3px;
+$green:     #7BDA3D;
