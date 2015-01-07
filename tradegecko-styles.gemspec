@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Tradegecko::Styles::VERSION
   spec.authors       = ["Wong Pei Yi"]
   spec.email         = ["wongpeiyi@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Shared styles library for TradeGecko apps}
+  spec.description   = spec.summary
+  spec.homepage      = "https://github.com/tradegecko/tradegecko-styles"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
