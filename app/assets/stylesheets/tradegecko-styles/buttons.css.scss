@@ -16,7 +16,7 @@
   border-radius: 3px;
   display: inline-block;
   height: 29px;
-  padding: 5px 8px 4px;
+  padding: 5px 10px 4px;
   outline: 0;
   outline: none;
   cursor: pointer;
@@ -51,12 +51,18 @@
   }
 }
 
+.button_large {
+  height: 35px;
+  padding: 8px 15px 7px;
+}
+
 /* ========================================================================= */
 /*   BUTTON GROUPS
 /* ========================================================================= */
 
 .button-group {
   display: inline-block;
+  vertical-align: middle;
   > .button {
     float: left;
     border-radius: 0;
@@ -82,6 +88,6 @@
 
 .button, .button-group {
   + .button, .button-group {
-    margin-left: 4px;
+    margin-left: 6px;
   }
 }
