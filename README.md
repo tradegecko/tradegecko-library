@@ -4,6 +4,7 @@ Shared styles library for TradeGecko apps
 
 Examples: http://tradegecko-examples.herokuapp.com
 
+CSS Style Guide: https://gist.github.com/wongpeiyi/87cee67a2c2dd0215b0e
 
 ## Installation
 
