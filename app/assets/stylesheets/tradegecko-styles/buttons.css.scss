@@ -63,9 +63,16 @@
   }
 }
 
+// Size variations
+
 .button_large {
   height: 35px;
   padding: 8px 15px 7px;
+}
+
+.button_small {
+  height: 24px;
+  padding: 2px 8px;
 }
 
 /* ========================================================================= */
@@ -83,11 +90,13 @@
     }
   }
   > .button:first-of-type {
-    border-radius: 3px 0 0 3px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
   }
   > .button:last-of-type {
-    border-radius: 0 3px 3px 0;
     border-right-width: 1px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 }
 
