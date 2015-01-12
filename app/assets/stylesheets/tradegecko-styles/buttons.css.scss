@@ -39,6 +39,13 @@
   }
   > i {
     margin-right: 2px;
+    &.fa-caret-down {
+      margin-left: 2px;
+      margin-right: 0;
+    }
+    &.fa-trash, &.fa-trash-o {
+      margin-right: 0;
+    }
   }
 }
 
@@ -63,9 +70,18 @@
   }
 }
 
+%button_icon .fa {
+  margin-left: 0;
+  margin-right: 0;
+}
+.button.button_icon {
+  @extend %button_icon;
+}
+
 // Size variations
 
 .button_large {
+  font-size: 14px;
   height: 35px;
   padding: 8px 15px 7px;
 }
