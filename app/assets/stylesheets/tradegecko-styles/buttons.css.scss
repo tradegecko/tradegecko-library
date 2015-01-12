@@ -5,6 +5,7 @@
 .button {
   @include user-select(none);
   @include linear-gradient(#f1f1f1, #e2e2e2);
+  @extend %spaced-element;
   font-size: 11px;
   font-weight: 500;
   line-height: 18px;
@@ -96,13 +97,16 @@
 /* ========================================================================= */
 
 .button-group {
+  @extend %spaced-element;
   float: left;
   vertical-align: middle;
   > .button {
     border-radius: 0;
     border-right-width: 0;
-    + .button {
+    & + .button,
+    &:not(.right) + .button:not(.right) {
       margin-left: 0;
+      margin-right: 0;
     }
   }
   > .button:first-of-type {
@@ -122,8 +126,11 @@
 
 // Spacing between buttons & groups
 
-.button, .button-group {
-  + .button, + .button-group {
+%spaced-element {
+  &:not(.right) + &:not(.right) {
     margin-left: 10px;
+  }
+  &.right + &.right {
+    margin-right: 10px;
   }
 }
