@@ -21,6 +21,9 @@
   outline: 0;
   outline: none;
   cursor: pointer;
+
+  // Button states
+
   &:hover {
     @include linear-gradient(#f4f4f4, #e5e5e5);
     text-decoration: none;
@@ -38,17 +41,9 @@
     cursor: not-allowed;
     pointer-events: none;
   }
-  > i {
-    margin-right: 2px;
-    &.fa-caret-down {
-      margin-left: 2px;
-      margin-right: 0;
-    }
-    &.fa-trash, &.fa-trash-o {
-      margin-right: 0;
-    }
-  }
 }
+
+// Button variations
 
 .button_primary {
   @include linear-gradient($green, $green-dark);
@@ -71,7 +66,20 @@
   }
 }
 
-%button_icon .fa {
+// Buttons with icons
+
+.button > i {
+  margin-right: 2px;
+  &.fa-caret-down {
+    margin-left: 2px;
+    margin-right: 0;
+  }
+  &.fa-trash, &.fa-trash-o {
+    margin-right: 0;
+  }
+}
+
+%button_icon i {
   margin-left: 0;
   margin-right: 0;
 }
@@ -79,7 +87,7 @@
   @extend %button_icon;
 }
 
-// Size variations
+// Button sizes
 
 .button_large {
   font-size: 14px;
