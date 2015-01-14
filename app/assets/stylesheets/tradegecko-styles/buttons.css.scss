@@ -70,12 +70,25 @@
 
 .button > i {
   margin-right: 2px;
+
+  // Special cases
   &.fa-caret-down {
     margin-left: 2px;
     margin-right: 0;
   }
   &.fa-trash, &.fa-trash-o {
     margin-right: 0;
+  }
+  &.fa-chevron-left, &.fa-chevron-right {
+    font-size: 10px;
+  }
+  &.fa-chevron-left {
+    margin-left: -1px;
+    margin-right: 3px;
+  }
+  &.fa-chevron-right {
+    margin-left: 3px;
+    margin-right: -1px;
   }
 }
 
