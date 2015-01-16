@@ -33,8 +33,8 @@ Or include only specific modules:
 └── core
     └── variables
     └── reset
-    └── ...
-└── ...
+└── buttons
+└── tooltips
 ```
 
 ## Making Changes
