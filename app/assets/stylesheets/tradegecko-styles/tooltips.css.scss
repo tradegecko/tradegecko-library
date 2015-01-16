@@ -2,22 +2,32 @@
 /*   TOOLTIPS
 /* ========================================================================== */
 
+// Should be .tooltip but clashes with Bootstrap
+// Change if Bootstrap is removed
+.tooltip-block {
+  text-align: center;
+  height: 0;
+}
+
 .tooltip-text {
   @include transition(opacity 0.1s ease-in 0.15s, visibility 1ms 0.25s);
-  @include transform(translate(-50%, -100%));
+  @include transform(translateY(-100%));
   -webkit-font-smoothing: subpixel-antialiased;
   font-family: $font-base;
   font-size: 11px;
+  line-height: 18px;
   background: #000;
   color: #fff;
   border-radius: 4px;
   display: inline-block;
-  position: absolute;
-  margin-top: -5px;
+  position: relative;
+  margin-left: -200px;
+  margin-right: -200px;
   max-width: 200px;
-  padding: 5px 9px;
+  padding: 4px 9px;
   visibility: hidden;
   opacity: 0;
+  z-index: 1;
 
   // Tooltip arrow
 
@@ -38,20 +48,20 @@
 
 // Placement variations
 
-.tooltip_bottom + .tooltip-text {
-  @include transform(translateX(-50%));
+.tooltip_bottom + div > .tooltip-text {
+  @include transform(none);
   &:before {
     @include transform(rotateX(180deg));
     top: -4px;
   }
 }
 
-// Element that triggers a tooltip
+// Element that triggers the tooltip
 
 %tooltip {
   cursor: help;
-  &:hover + .tooltip-text,
-  &.active + .tooltip-text,
+  &:hover  + div > .tooltip-text,
+  &.active + div > .tooltip-text,
   + .tooltip-text:hover {
     @include transition(opacity 0.1s ease-out, visibility 1ms);
     visibility: visible;
@@ -64,10 +74,10 @@
   text-align: center;
   color: #999;
   width: 14px;
-  + .tooltip-text {
-    margin-left: -7px;
+  + div {
+    margin-top: -25px;
   }
-  &.tooltip_bottom + .tooltip-text {
-    margin-top: 26px;
+  &.tooltip_bottom + div {
+    margin-top: 5px;
   }
 }
