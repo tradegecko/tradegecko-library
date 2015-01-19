@@ -34,6 +34,7 @@ Or include only specific modules:
     └── variables
     └── reset
 └── buttons
+└── tables
 └── tooltips
 ```
 
