@@ -24,7 +24,7 @@
 
   // Button states
 
-  &:hover {
+  &:hover, &:focus {
     @include linear-gradient(#f4f4f4, #e5e5e5);
     text-decoration: none;
     color: #555;
