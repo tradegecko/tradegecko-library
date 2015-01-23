@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'tradegecko/styles/version'
+require 'tradegecko/library/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "tradegecko-styles"
-  spec.version       = Tradegecko::Styles::VERSION
+  spec.name          = "tradegecko-library"
+  spec.version       = Tradegecko::Library::VERSION
   spec.authors       = ["Wong Pei Yi"]
   spec.email         = ["wongpeiyi@gmail.com"]
-  spec.summary       = %q{Shared styles library for TradeGecko apps}
+  spec.summary       = %q{Shared styles and components library for TradeGecko apps}
   spec.description   = spec.summary
-  spec.homepage      = "https://github.com/tradegecko/tradegecko-styles"
+  spec.homepage      = "https://github.com/tradegecko/tradegecko-library"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

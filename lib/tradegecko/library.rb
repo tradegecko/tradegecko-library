@@ -1,7 +1,7 @@
-require "tradegecko/styles/version"
+require "tradegecko/library/version"
 
 module Tradegecko
-  module Styles
+  module Library
     class Engine < ::Rails::Engine
       # Rails adds assets to load path
     end
