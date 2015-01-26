@@ -28,6 +28,8 @@
     @include linear-gradient(#f4f4f4, #e5e5e5);
     text-decoration: none;
     color: #555;
+    outline: 0;
+    outline: none;
   }
   &:active, &.active {
     @include linear-gradient(#dadada, #e4e4e4);
