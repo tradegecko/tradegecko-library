@@ -30,13 +30,18 @@ Or include only specific modules:
 ## Structure
 
 ```
-└── core
-    └── variables
-    └── reset
-    └── helpers
-└── buttons
-└── tables
-└── tooltips
+/app/assets
+
+└── stylesheets
+    └── core
+        └── variables
+        └── reset
+        └── helpers
+    └── buttons
+    └── tables
+    └── tooltips
+
+└── javascripts
 ```
 
 ## Making Changes
