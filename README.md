@@ -42,6 +42,8 @@ Or include only specific modules:
     └── tooltips
 
 └── javascripts
+    └── extensions
+        └── enumerable-extensions
 ```
 
 ## Making Changes
