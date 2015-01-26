@@ -25,3 +25,18 @@ App.Helpers = Ember.Object.createWithMixins
     else
       +Big(+first)[operator](+second)
 
+  ###
+    Parses a value into a float. Defaults to 0.
+    This should be used instead of parseFloat where possible.
+
+    @param {Number} number
+      The value to be parsed
+
+    @param {Number} defaultValue
+      The value to use if `number` is undefined or NaN. Defaults to 0.
+  ###
+
+  parseNumber: (number, defaultValue=0) ->
+    value = parseFloat(number)
+    value = defaultValue if isNaN(value)
+    value
