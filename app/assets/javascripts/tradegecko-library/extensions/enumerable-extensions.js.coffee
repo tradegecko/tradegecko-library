@@ -28,20 +28,23 @@ EnumerableExtensions = Ember.Mixin.create
     , start || -Infinity
 
   ###
-    Computes the sum of a given property in an enumerable.
-    E.g. [{age: 7}, {age: 77}].sumBy('age'); // = 84
+    Computes the sum of the elements in an enumerable.
+    E.g. [7, 77].sum()); // = 84
+
+    @requires Big.js
 
     @param {String} key
       The property we want the sum of.
   ###
 
-  sumBy: (key) ->
-    decimal = @reduce (previousValue, item, index, enumerable) ->
-      value = Ember.get(item, key)
+  sum: ->
+    +@reduce (previousValue, value, index, enumerable) ->
       value = 0 if isNaN(value)
       previousValue.plus +value
     , new Big(0)
-    return +decimal
+
+  sumBy: (key) ->
+    @mapBy(key).sum()
 
 
 Ember.Enumerable.reopen(EnumerableExtensions)
