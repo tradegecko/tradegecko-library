@@ -12,3 +12,6 @@
 *.o
 *.a
 mkmf.log
+bower_components
+node_modules
+*.log
