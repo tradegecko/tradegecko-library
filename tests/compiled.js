@@ -7,4 +7,20 @@
     return equal(App.Helpers.parseNumber(NaN), 0, "returns 0 otherwise");
   });
 
+  test("op", function() {
+    var _big;
+    _big = Big;
+    window.Big = void 0;
+    throws(App.Helpers.op, "throws Error if Big.js is not required");
+    window.Big = _big;
+    ok(isNaN(App.Helpers.op(void 0, 'plus', 1)), "returns NaN if first value is NaN");
+    ok(isNaN(App.Helpers.op(1, 'plus', NaN)), "returns NaN if second value is NaN");
+    ok(isNaN(App.Helpers.op(0, 'div', 0)), "0 / 0 = NaN");
+    equal(App.Helpers.op(1, 'div', 0), Infinity, "1 / 0 = Infinity");
+    equal(App.Helpers.op(-1, 'div', 0), -Infinity, "-1 / 0 = -Infinity");
+    equal(App.Helpers.op(1, 'plus', "2"), 3, "handles strings");
+    equal(App.Helpers.op(1.1, 'times', "2.2"), 2.42, "handles floats");
+    return ok(App.Helpers.op(1.1, 'plus', 1.3) !== (1.1 + 1.3), "does math correctly");
+  });
+
 }).call(this);

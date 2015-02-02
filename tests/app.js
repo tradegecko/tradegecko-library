@@ -140,11 +140,11 @@
         The two numbers to perform the operation on.
     
       @param {String} operator
-        "plus", "minus", "times" or "divide".
+        "plus", "minus", "times", "div", "pow"
         Note that this param comes in between the two numbers for readability.
      */
     op: function(first, operator, second) {
-      if (!Big) {
+      if (typeof Big === "undefined") {
         throw "Requires Big.js";
       }
       if (isNaN(first) || isNaN(second)) {
