@@ -1,9 +1,26 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    qunit: {
-      all: ['tests/*.html']
+    // Compile coffee to js and concat
+    coffee: {
+      compile: {
+        files: {
+          'tests/compiled.js': ['tests/**/*.coffee'],
+          'tests/app.js': ['app/assets/javascripts/**/*.coffee']
+        }
+      },
     },
+
+    // Run qunit tests via phantomJS
+    qunit: {
+      all: {
+        options: {
+          urls: ['http://localhost:5001/tests/index.html'],
+        }
+      }
+    },
+
+    // Serve qunit html on port 5001 or next available port
     connect: {
       server: {
         options: {
@@ -12,9 +29,12 @@ module.exports = function(grunt) {
         }
       }
     },
+
+    // Recompile & trigger livereload on file change
     watch: {
       scripts: {
-        files: 'tests/*.js',
+        files: ['app/assets/javascripts/**/*.coffee', 'index.html', 'tests/**/*.coffee'],
+        tasks: ['coffee'],
         options: {
           livereload: true,
         },
@@ -22,11 +42,11 @@ module.exports = function(grunt) {
     },
   });
 
-
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-coffee');
 
-  grunt.registerTask('default', ['qunit']);
-  grunt.registerTask('serve', ['connect', 'watch']);
+  grunt.registerTask('default', ['coffee', 'connect', 'qunit']);
+  grunt.registerTask('serve', ['coffee', 'connect', 'watch']);
 };
