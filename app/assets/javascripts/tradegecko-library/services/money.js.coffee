@@ -1,0 +1,95 @@
+App.MoneyService = Ember.Object.extend
+
+  ###
+    Converts a value from the working currency to the base currency.
+          - OR -     from the base currency to the working currency.
+
+    E.g. `App.Money.convert(orderTotal, from: currency)`
+         `App.Money.convert(baseTotal, to: currency)`
+
+    @param {Number} value
+      The value to convert
+
+    @param {Object} opts
+      Object with one of the following keys:
+
+        `from:` {Currency object with `rate` property}
+        Converts from the currency object to the base currency
+
+        `to:` {Currency object with `rate` property}
+        Converts to the currency object from the base currency
+  ###
+
+  convert: (value, opts={}) ->
+    return unless value
+    currency = opts.from || opts.to || @get('defaultCurrency')
+    return value unless currency
+    return value unless rate = Ember.get(currency, 'rate')
+    if opts.from
+      App.Helpers.op(value, 'div', rate)
+    else
+      App.Helpers.op(value, 'times', rate)
+
+
+  ###
+    Formats a currency amount for display, according to the Currency
+    object and opts hash.
+
+    E.g. `App.Money.format(12.3456, currency: currency, symbol: "$")`
+
+    @requires Accounting.js
+
+    @param {Number} value
+      The currency amount to format
+
+    @param {Object} currency
+      Formats according to the currency's properties:
+        `symbol`                  {String}
+        `precision`               {Number}
+        `decimal`  or `separator` {String}
+        `thousand` or `delimiter` {String}
+        `format`                  {String}
+
+    @param {Object} opts
+      `symbol` {String || `false`}
+      Overrides the currency's symbol. Displays nothing if `false`.
+  ###
+
+  format: (value, currency="inherit", opts={}) ->
+    throw "Requires accounting.js" if typeof accounting is "undefined"
+    return "" if Ember.isNone(value)
+    currency = @get('defaultCurrency') if currency == "inherit"
+    # Get formatting properties from currency
+    keys  = "symbol decimal thousand precision format".w()
+    props = Ember.getProperties(currency, keys)
+    # Normalizes format to match accounting.js
+    props.format = @_normalizeFormat(props.format)
+    # Hide symbol if overriden with `false`
+    if opts.symbol == false
+      props.symbol = ""
+      props.format = "%n"
+    # Catch Rails error if precision is too large
+    props.precision = 6 if props.precision > 20
+    accounting.formatMoney(value, props)
+
+  _normalizeFormat: (format) ->
+    # %n -> %v (number value)
+    # %u -> %s (symbol)
+    format.replace("%n", "%v").replace("%u", "%s")
+
+  ###
+    Retrieves the default currency of the current account factory,
+    `current:account` if set (typically by an initializer).
+
+    Otherwise returns a default currency for formatting with rate 1.
+  ###
+
+  defaultCurrency: ( ->
+    @container?.lookup("current:account")?.get('defaultCurrency') ||
+      symbol:    "$"
+      precision:  2
+      decimal:   "."
+      thousand:  ","
+      format:    "%u%n"
+      rate:      1
+  ).property().volatile()
