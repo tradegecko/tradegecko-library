@@ -8,7 +8,7 @@ test "parseNumber", ->
 test "op", ->
   _big = Big
   window.Big = undefined
-  throws App.Helpers.op, "throws Error if Big.js is not required"
+  throws App.Helpers.op, "Requires Big.js", "throws Error if Big.js is not required"
   window.Big = _big
 
   ok isNaN(App.Helpers.op(undefined, 'plus', 1)),    "returns NaN if first value is NaN"
