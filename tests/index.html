@@ -13,12 +13,17 @@
     <script src='../bower_components/ember/ember.js'></script>
     <script src='../bower_components/qunit/qunit/qunit.js'></script>
 
-    <!-- Tests -->
-    <script src='tests.js'></script>
-
+    <script src='../bower_components/big.js/big.js'></script>
   </head>
   <body>
     <div id="qunit"></div>
     <div id='qunit-fixture'></div>
+
+    <!-- App -->
+    <script>window.App = Ember.Application.create()</script>
+    <script src='app.js'></script>
+
+    <!-- Tests -->
+    <script src='compiled.js'></script>
   </body>
 </html>
