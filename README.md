@@ -47,6 +47,31 @@ Or include only specific modules:
         └── string-extensions
 ```
 
+## Test Setup
+
+To setup Javascript testing with QUnit:
+
+```
+  npm install
+  bower install
+```
+
+To perform tests headless via PhantomJS, run `grunt`.
+
+To perform tests in the browser, run `grunt serve`.
+Default path is http://localhost:5001
+Writing files will automatically recompile tests.
+Enable LiveReload to refresh the browser automatically as well.
+
+## Writing New Tests
+
+1. Add any required libraries, preferably using `bower install --save`
+2. Include the library in /test/index.html
+3. Write a .coffee test in /tests/**/
+4. Your files will be automatically compiled with Grunt:
+  - /app/assets/javascripts/**/*.coffee --> /tests/app.js
+  - /tests/**/*.coffee --> /tests/compiled.js
+
 ## Making Changes
 
 1. Always make your changes in a junk.css file in your app first.
