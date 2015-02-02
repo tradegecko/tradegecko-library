@@ -47,6 +47,9 @@
         The property we want the sum of.
      */
     sum: function() {
+      if (typeof Big === "undefined") {
+        throw "Requires Big.js";
+      }
       return +this.reduce(function(previousValue, value, index, enumerable) {
         if (isNaN(value)) {
           value = 0;
