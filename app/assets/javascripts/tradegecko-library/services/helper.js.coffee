@@ -1,6 +1,6 @@
 #= require big
 
-App.Helpers = Ember.Object.createWithMixins
+App.HelpersService = Ember.Object.extend
 
   ###
     Performs a Big.js operation between two numbers.
@@ -52,3 +52,8 @@ App.Helpers = Ember.Object.createWithMixins
     value = parseFloat(number)
     value = defaultValue if isNaN(value)
     value
+
+
+# Instantiate App.Helpers
+
+App.Helpers = App.__container__.lookup('service:helpers')

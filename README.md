@@ -58,8 +58,6 @@ Or include only specific modules:
     └── extensions
         └── enumerable-extensions
         └── string-extensions
-    └── helpers
-        └── helpers
     └── services
         └── money
 ```
