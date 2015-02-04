@@ -1,5 +1,3 @@
-return unless Ember
-
 App.Helpers = Ember.Object.createWithMixins
 
   ###

@@ -1,5 +1,3 @@
-return unless Ember
-
 EnumerableExtensions = Ember.Mixin.create
 
   ###
