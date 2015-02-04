@@ -67,11 +67,22 @@ App.HelpersService = Ember.Object.extend
 
   roundNumber: (number, precision) ->
     unless precision
-      account   = @container.lookup("current:account")
-      return number unless account && account.get('defaultCurrency')
-      precision = account.get('defaultCurrency.precision')
+      return number unless @get('defaultCurrency')
+      precision = @get('defaultCurrency.precision')
     factor = Math.pow(10, precision)
     Math.round(number * factor) / factor
+
+
+  ###
+    Retrieves the default currency of the current account factory,
+    `current:account` if set (typically by an initializer).
+
+    Similar function exists in service:money
+  ###
+
+  defaultCurrency: ( ->
+    @container?.lookup("current:account")?.get('defaultCurrency')
+  ).property().volatile()
 
 
 # Instantiate App.Helpers
