@@ -46,12 +46,12 @@ App.MoneyService = Ember.Object.extend
 
     @param {Object} currency
       Formats according to the currency's properties:
-        `symbol`                  {String}
-        `precision`               {Number}
-        `decimal`  or `separator` {String}
-        `thousand` or `delimiter` {String}
-        `format`                  {String}
-
+        `symbol`                  {String} e.g. '$'
+        `precision`               {Number} Number of decimal places
+        `decimal`  or `separator` {String} e.g. '.' in $123.45
+        `thousand` or `delimiter` {String} e.g. ',' in ¥100,000
+        `format`                  {String} %u => Symbol
+                                           $n => Numeric value
     @param {Object} opts
       `symbol` {String || `false`}
       Overrides the currency's symbol. Displays nothing if `false`.
