@@ -54,6 +54,26 @@ App.HelpersService = Ember.Object.extend
     value
 
 
+  ###
+    Rounds a number to the specified precision.
+    Uses the defaultCurrency's precision by default
+
+    @param {Number} number
+      The value to be rounded
+
+    @param {Number} precision
+      Number of decimal places to round to. Can be omitted.
+  ###
+
+  roundNumber: (number, precision) ->
+    unless precision
+      account   = @container.lookup("current:account")
+      return number unless account && account.get('defaultCurrency')
+      precision = account.get('defaultCurrency.precision')
+    factor = Math.pow(10, precision)
+    Math.round(number * factor) / factor
+
+
 # Instantiate App.Helpers
 
 App.Helpers = App.__container__.lookup('service:helpers')
