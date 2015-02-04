@@ -1,3 +1,5 @@
+#= require accountingjs
+
 App.MoneyService = Ember.Object.extend
 
   ###
