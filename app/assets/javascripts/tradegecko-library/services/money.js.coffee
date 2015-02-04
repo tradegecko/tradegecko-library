@@ -9,6 +9,12 @@ App.MoneyService = Ember.Object.extend
     E.g. `App.Money.convert(orderTotal, from: currency)`
          `App.Money.convert(baseTotal, to: currency)`
 
+    Note: currency `rate` is in BASE/WORKING
+    E.g. Base currency:    SGD
+         Working currency: EUR
+         `currency.rate` is SGD/EUR = 0.64
+         i.e. 1 SGD = 0.64 EUR
+
     @param {Number} value
       The value to convert
 
@@ -24,8 +30,7 @@ App.MoneyService = Ember.Object.extend
 
   convert: (value, opts={}) ->
     return unless value
-    currency = opts.from || opts.to || @get('defaultCurrency')
-    return value unless currency
+    return value unless currency = opts.from || opts.to
     return value unless rate = Ember.get(currency, 'rate')
     if opts.from
       App.Helpers.op(value, 'div', rate)
