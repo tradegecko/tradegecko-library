@@ -18,12 +18,24 @@ App.Helpers = Ember.Object.createWithMixins
   op: (first, operator, second) ->
     throw "Requires Big.js" if typeof Big is "undefined"
     return NaN if (isNaN(first) || isNaN(second))
-    if operator == "div" && +second == 0
+    # parseNumbers
+    first  = +first
+    second = +second
+    if operator == "div" && second == 0
       # Handle division by zero
       return NaN if first == 0
       if first > 0 then Infinity else -Infinity
+    # Handle the infinities because Big.js doesn't
+    else if Math.abs(first) == Infinity || Math.abs(second) == Infinity
+      operatorMap =
+        plus:  "+"
+        minus: "-"
+        times: "*"
+        div:   "/"
+      op = operatorMap[operator]
+      eval "#{first} #{op} #{second}"
     else
-      +Big(+first)[operator](+second)
+      +Big(first)[operator](second)
 
   ###
     Parses a value into a float. Defaults to 0.
