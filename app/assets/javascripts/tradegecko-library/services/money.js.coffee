@@ -62,10 +62,9 @@ App.MoneyService = Ember.Object.extend
     return "" if Ember.isNone(value)
     currency = @get('defaultCurrency') if currency == "inherit"
     # Get formatting properties from currency
-    keys  = "symbol decimal thousand precision format".w()
+    keys  = "symbol decimal thousand precision format negativeFormat".w()
     props = Ember.getProperties(currency, keys)
-    # Normalizes format to match accounting.js
-    props.format = @_normalizeFormat(props.format)
+    props = @_normalizeNegativeFormat(props)
     # Hide symbol if overriden with `false`
     if opts.symbol == false
       props.symbol = ""
@@ -74,10 +73,23 @@ App.MoneyService = Ember.Object.extend
     props.precision = 6 if props.precision > 20
     accounting.formatMoney(value, props)
 
+  _normalizeNegativeFormat: (props) ->
+    # Normalizes format to handle negativeFormat
+    if props.negativeFormat
+      props.format =
+        pos:  @_normalizeFormat(props.format)
+        zero: @_normalizeFormat(props.format)
+        neg:  @_normalizeFormat(props.negativeFormat)
+    else
+      props.format = @_normalizeFormat(props.format)
+    return props
+
   _normalizeFormat: (format) ->
-    # %n -> %v (number value)
-    # %u -> %s (symbol)
+    # Normalizes format to match accounting.js
+    #   %n -> %v (number value)
+    #   %u -> %s (symbol)
     format.replace("%n", "%v").replace("%u", "%s")
+
 
   ###
     Retrieves the default currency of the current account factory,

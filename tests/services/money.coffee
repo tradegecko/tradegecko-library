@@ -27,3 +27,5 @@ test "format", ->
   equal @service.format(123.456, currency), "☃123.5",  "formats symbol"
   currency.format = "%n %u"
   equal @service.format(123.456, currency), "123.5 ☃", "formats format"
+  currency.negativeFormat = "%u(%n)"
+  equal @service.format(-123.456, currency), "☃(123.5)", "formats negative format"
