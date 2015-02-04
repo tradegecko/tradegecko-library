@@ -15,3 +15,5 @@ mkmf.log
 bower_components
 node_modules
 *.log
+/tests/compiled.js
+/tests/app.js
