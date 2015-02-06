@@ -24,8 +24,8 @@ StringExtensions = Ember.Mixin.create
     value = "" + value
     # Return specific string if matches hash
     return humanized if humanized = Humanized[value.camelize()]
-    # Remove trailing `_id`
-    value = value.decamelize().replace(/_id$/, '')
+    # Remove trailing `_id` and `Id`
+    value = value.replace(/_id$|Id$/, '')
     # Returns last property if is a property string
     value = value.split(".").get('lastObject')
     # Split words and capitalize each word
