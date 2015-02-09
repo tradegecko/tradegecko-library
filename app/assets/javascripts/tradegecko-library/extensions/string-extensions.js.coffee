@@ -1,5 +1,3 @@
-return unless Ember
-
 Humanized =
   'orderLineItem':        "Line Item"
   'order':                "Sales Order"

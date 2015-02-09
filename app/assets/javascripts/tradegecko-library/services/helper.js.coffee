@@ -1,6 +1,6 @@
-return unless Ember
+#= require big
 
-App.Helpers = Ember.Object.createWithMixins
+App.HelpersService = Ember.Object.extend
 
   ###
     Performs a Big.js operation between two numbers.
@@ -52,3 +52,39 @@ App.Helpers = Ember.Object.createWithMixins
     value = parseFloat(number)
     value = defaultValue if isNaN(value)
     value
+
+
+  ###
+    Rounds a number to the specified precision.
+    Uses the defaultCurrency's precision by default
+
+    @param {Number} number
+      The value to be rounded
+
+    @param {Number} precision
+      Number of decimal places to round to. Can be omitted.
+  ###
+
+  roundNumber: (number, precision) ->
+    unless precision
+      return number unless @get('defaultCurrency')
+      precision = @get('defaultCurrency.precision')
+    factor = Math.pow(10, precision)
+    Math.round(number * factor) / factor
+
+
+  ###
+    Retrieves the default currency of the current account factory,
+    `current:account` if set (typically by an initializer).
+
+    Similar function exists in service:money
+  ###
+
+  defaultCurrency: ( ->
+    @container?.lookup("current:account")?.get('defaultCurrency')
+  ).property().volatile()
+
+
+# Instantiate App.Helpers
+
+App.Helpers = App.__container__.lookup('service:helpers')

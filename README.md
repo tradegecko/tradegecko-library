@@ -27,6 +27,19 @@ Or include only specific modules:
 @import "tradegecko-library/core/variables";
 ```
 
+In application.js:
+
+```coffeescript
+#= require tradegecko-library
+```
+
+Or include only specific modules:
+
+```coffeescript
+#= require tradegecko-library/extensions
+#= require tradegecko-library/helpers/helpers
+```
+
 ## Structure
 
 ```
@@ -45,6 +58,8 @@ Or include only specific modules:
     └── extensions
         └── enumerable-extensions
         └── string-extensions
+    └── services
+        └── money
 ```
 
 ## Test Setup

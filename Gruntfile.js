@@ -5,8 +5,8 @@ module.exports = function(grunt) {
     coffee: {
       compile: {
         files: {
-          'tests/compiled.js': ['tests/**/*.coffee'],
-          'tests/app.js': ['app/assets/javascripts/**/*.coffee']
+          'tests/tmp/compiled.js': ['tests/**/*.coffee'],
+          'tests/tmp/app.js': ['app/assets/javascripts/**/*.coffee']
         }
       },
     },

@@ -19,9 +19,11 @@ test "sum", ->
   throws App.Helpers.op, "Requires Big.js", "throws Error if Big.js is not required"
   window.Big = _big
 
-  equal [1,2,3].sum(), 6,     "sums array elements"
-  equal [].sum(), 0,          "returns 0 if no elements"
-  equal [1.1,1.3].sum(), 2.4, "handles floats with Big.js"
+  equal [1,2,3].sum(), 6,      "sums array elements"
+  equal [].sum(), 0,           "returns 0 if no elements"
+  equal [1.1,1.3].sum(), 2.4,  "handles floats with Big.js"
+  equal ["1",2].sum(), 3,      "handles strings"
+  equal ["tg",1.3].sum(), 1.3, "handles stupidity"
 
 test "sumBy", ->
   equal [{value: 1}, {value: 3}, {value: 2}].sumBy('value'), 6,

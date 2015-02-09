@@ -1,4 +1,4 @@
-return unless Ember
+#= require big
 
 EnumerableExtensions = Ember.Mixin.create
 
