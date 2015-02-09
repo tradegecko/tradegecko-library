@@ -6,6 +6,7 @@
 // TODO: Change if Bootstrap is removed
 .tooltip-block {
   text-align: center;
+  white-space: nowrap;
   height: 0;
 }
 
@@ -16,6 +17,7 @@
   font-family: $font-base;
   font-size: 11px;
   line-height: 18px;
+  white-space: normal;
   background: #000;
   color: #fff;
   border-radius: 4px;
@@ -35,7 +37,7 @@
     @extend .fa;
     @extend .fa-caret-down;
     font-size: 20px;
-    line-height: 3px;
+    line-height: 3px !important;
     color: #000;
     position: absolute;
     top: 100%;
@@ -75,9 +77,13 @@
   color: #999;
   width: 14px;
   + div {
-    margin-top: -25px;
+    // Fix overflow hidden parents
+    position: absolute !important;
+    display: inline;
+    margin-top: -5px;
+    margin-left: -7px;
   }
   &.tooltip_bottom + div {
-    margin-top: 5px;
+    margin-top: 26px;
   }
 }
