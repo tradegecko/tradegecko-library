@@ -35,7 +35,7 @@ EnumerableExtensions = Ember.Mixin.create
 
   ###
     Computes the sum of the elements in an enumerable.
-    E.g. [7, 77].sum()); // = 84
+    E.g. [7, 77].sum(); // = 84
 
     @requires Big.js
 
