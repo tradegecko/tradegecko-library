@@ -34,5 +34,5 @@ StringExtensions = Ember.Mixin.create
 
 StringExtensions.apply(Ember.String)
 if Ember.EXTEND_PROTOTYPES
-  for method, fn of StringExtensions.mixins[0].properties
-    String.prototype[method] = -> fn(this)
+  Ember.keys(StringExtensions.mixins[0].properties).forEach (method) ->
+    String.prototype[method] = -> Ember.String[method](this)
