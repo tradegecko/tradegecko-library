@@ -1,6 +1,12 @@
-#= require big
+###cli
+`import Ember from 'ember'`
+###
 
-App.HelpersService = Ember.Object.extend
+###rails
+#= require big
+###
+
+HelpersService = Ember.Object.extend
 
   ###
     Performs a Big.js operation between two numbers.
@@ -89,6 +95,10 @@ App.HelpersService = Ember.Object.extend
   ).property().volatile()
 
 
-# Instantiate App.Helpers
+if App # Rails
+  App.HelpersService = HelpersService
+  App.Helpers = App.__container__.lookup('service:helpers')
 
-App.Helpers = App.__container__.lookup('service:helpers')
+###cli
+`export default HelpersService`
+###

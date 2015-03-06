@@ -1,4 +1,10 @@
+###cli
+`import Ember from 'ember'`
+###
+
+###rails
 #= require big
+###
 
 EnumerableExtensions = Ember.Mixin.create
 
