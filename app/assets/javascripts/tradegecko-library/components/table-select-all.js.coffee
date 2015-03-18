@@ -1,6 +1,6 @@
 App.TableSelectAllComponent = Ember.Component.extend
   classNames: "table-cell cell_select"
-  templateName: "tradegecko-library/table-select-all"
+  layoutName: "tradegecko-library/table-select-all"
 
   selectedAll: ((key, value) ->
     if arguments.length is 2
