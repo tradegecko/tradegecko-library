@@ -1,3 +1,5 @@
 //= require ./tradegecko-library/extensions
 //= require ./tradegecko-library/services
-//= require_tree ./tradegecko-library
+//= require ./tradegecko-library/mixins
+//= require ./tradegecko-library/components
+//= require_tree ./tradegecko-library/templates
