@@ -174,3 +174,21 @@ a.table-row {
     margin-top: 12px;
   }
 }
+
+/* ========================================================================== */
+/*   TABLE SELECT ALL / ROW COMPONENTS
+/* ========================================================================== */
+
+.table .cell_select {
+  width: 50px;
+  label {
+    padding: 12px 9px;
+  }
+  input[type="checkbox"] {
+    margin: 0;
+  }
+}
+
+.table-header .cell_select label {
+  padding-top: 10px;
+}
