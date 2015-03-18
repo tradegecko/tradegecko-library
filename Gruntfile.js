@@ -1,12 +1,31 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
+
+    // Precompile Handlebars templates
+    emberTemplates: {
+      options: {
+        templateNamespace: 'Handlebars'
+      },
+      compile: {
+        files: {
+          "tests/tmp/templates.js": "app/assets/javascripts/tradegecko-library/templates/*.handlebars",
+        }
+      }
+    },
+
     // Compile coffee to js and concat
     coffee: {
       compile: {
         files: {
           'tests/tmp/compiled.js': ['tests/**/*.coffee'],
-          'tests/tmp/app.js': ['app/assets/javascripts/**/*.coffee']
+          'tests/tmp/app.js': [
+            'app/assets/javascripts/tradegecko-library/extensions/*.coffee',
+            'app/assets/javascripts/tradegecko-library/services/*.coffee',
+            'app/assets/javascripts/tradegecko-library/mixins/*.coffee',
+            'app/assets/javascripts/tradegecko-library/components/*.coffee',
+            'app/assets/javascripts/tradegecko-library/templates/*.coffee',
+          ]
         }
       },
     },
@@ -46,7 +65,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-ember-templates');
 
-  grunt.registerTask('default', ['coffee', 'connect', 'qunit']);
-  grunt.registerTask('serve', ['coffee', 'connect', 'watch']);
+  grunt.registerTask('default', ['emberTemplates', 'coffee', 'connect', 'qunit']);
+  grunt.registerTask('serve', ['emberTemplates', 'coffee', 'connect', 'watch']);
 };
