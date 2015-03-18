@@ -182,6 +182,7 @@ a.table-row {
 .table .cell_select {
   width: 50px;
   label {
+    line-height: 1;
     padding: 12px 9px;
   }
   input[type="checkbox"] {
