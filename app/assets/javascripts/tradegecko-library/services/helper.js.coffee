@@ -70,7 +70,11 @@ App.HelpersService = Ember.Object.extend
       return number unless @get('defaultCurrency')
       precision = @get('defaultCurrency.precision')
     factor = Math.pow(10, precision)
-    Math.round(number * factor) / factor
+    if number > 0
+      Math.floor(number * factor + 0.5) / factor
+    else
+      Math.ceil(number * factor - 0.5) / factor
+
 
 
   ###
