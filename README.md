@@ -58,8 +58,16 @@ Or include only specific modules:
     └── extensions
         └── enumerable-extensions
         └── string-extensions
+        └── ember-computed
     └── services
+        └── helpers
         └── money
+    └── mixins
+        └── sortable-controller
+    └── components (+templates)
+        └── reorder-cell
+        └── table-select-row
+        └── table-select-all
 ```
 
 ## Test Setup
