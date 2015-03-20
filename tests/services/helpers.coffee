@@ -23,8 +23,8 @@ test "op", ->
   ok @service.op(1.1, 'plus', 1.3) != (1.1+1.3),  "does math correctly"
 
 test "roundNumber", ->
-  equal @service.roundNumber(1.23456, 3), 1.235,     "rounds correctly"
-  equal @service.roundNumber(-1.575, 2), -1.58,      "rounds negatives correctly"
+  equal @service.roundNumber(1.23456, 3), 1.235,      "rounds correctly"
+  equal @service.roundNumber(-1.575, 2), -1.58,       "rounds negatives correctly"
   equal @service.roundNumber("1.23456", "3"), 1.235,  "works with strings"
   equal @service.roundNumber(1.23456), 1.23456,
         "returns unrounded if no precision, account, or default currency"
