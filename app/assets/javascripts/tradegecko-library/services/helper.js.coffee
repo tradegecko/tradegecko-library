@@ -70,6 +70,8 @@ App.HelpersService = Ember.Object.extend
       return number unless @get('defaultCurrency')
       precision = @get('defaultCurrency.precision')
     factor = Math.pow(10, precision)
+     # Emulate ruby for negative rounding
+    factor = -factor if number < 0
     Math.round(number * factor) / factor
 
 
