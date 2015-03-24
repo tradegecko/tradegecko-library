@@ -24,6 +24,7 @@ test "sum", ->
   equal [1.1,1.3].sum(), 2.4,  "handles floats with Big.js"
   equal ["1",2].sum(), 3,      "handles strings"
   equal ["tg",1.3].sum(), 1.3, "handles stupidity"
+  equal ["∞",0,150].sum(), "∞", "handles Infinity"
 
 test "sumBy", ->
   equal [{value: 1}, {value: 3}, {value: 2}].sumBy('value'), 6,
