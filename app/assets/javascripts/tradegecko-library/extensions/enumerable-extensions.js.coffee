@@ -39,10 +39,13 @@ EnumerableExtensions = Ember.Mixin.create
 
   sum: ->
     throw "Requires Big.js" if typeof Big is "undefined"
-    +@reduce (previousValue, value, index, enumerable) ->
-      value = 0 if isNaN(value)
-      previousValue.plus +value
-    , new Big(0)
+    if @any((val) -> '∞' == val)
+      '∞'
+    else
+      +@reduce (previousValue, value, index, enumerable) ->
+        value = 0 if isNaN(value)
+        previousValue.plus +value
+      , new Big(0)
 
   sumBy: (key) ->
     @mapBy(key).sum()
