@@ -1,5 +1,5 @@
 App.ReorderCellComponent = Ember.Component.extend
-  layoutName: "tradegecko-library/reorder-cell"
+  layoutName: "reorder-cell"
   tagName: "a"
   href: "#"
   attributeBindings: "href"
