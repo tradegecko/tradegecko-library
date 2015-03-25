@@ -1,14 +1,16 @@
 ###cli
 `import Ember from 'ember'`
 `import Helpers from './helpers'`
+`import accounting from 'accounting'`
 ###
 
 ###rails
 #= require accountingjs
 ###
 
-Helpers = App.Helpers if App # Rails
-
+#rails
+Helpers = App.Helpers if App
+#
 
 MoneyService = Ember.Object.extend
 
@@ -122,9 +124,9 @@ MoneyService = Ember.Object.extend
       rate:      1
   ).property().volatile()
 
-
-if App # Rails
-  App.MoneyService = MoneyService
+#rails
+App.MoneyService = MoneyService
+#
 
 ###cli
 `export default MoneyService`

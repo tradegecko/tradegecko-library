@@ -6,7 +6,9 @@
 #= require big
 ###
 
+#rails
 HelpersService = Ember.Object.extend
+#
 
   ###
     Performs a Big.js operation between two numbers.
@@ -95,9 +97,10 @@ HelpersService = Ember.Object.extend
   ).property().volatile()
 
 
-if App # Rails
-  App.HelpersService = HelpersService
-  App.Helpers = App.__container__.lookup('service:helpers')
+#rails
+App.HelpersService = HelpersService
+App.Helpers = App.__container__.lookup('service:helpers')
+#
 
 ###cli
 `export default HelpersService`
