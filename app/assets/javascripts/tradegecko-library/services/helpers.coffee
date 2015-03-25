@@ -6,9 +6,8 @@
 #= require big
 ###
 
-#rails
+
 HelpersService = Ember.Object.extend
-#
 
   ###
     Performs a Big.js operation between two numbers.
