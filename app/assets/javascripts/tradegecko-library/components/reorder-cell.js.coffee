@@ -1,4 +1,7 @@
-App.ReorderCellComponent = Ember.Component.extend
+###cli
+`import Ember from 'ember'`
+###
+ReorderCellComponent = Ember.Component.extend
   layoutName: "reorder-cell"
   tagName: "a"
   href: "#"
@@ -21,3 +24,10 @@ App.ReorderCellComponent = Ember.Component.extend
     @get("label") || Ember.String.humanize(@get("sortOn"))
   ).property("label")
 
+#rails
+App.ReorderCellComponent = ReorderCellComponent
+#
+
+###cli
+`export default ReorderCellComponent`
+###

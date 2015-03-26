@@ -1,3 +1,7 @@
+###cli
+`import Ember from 'ember'`
+###
+
 Humanized =
   'orderLineItem':        "Line Item"
   'order':                "Sales Order"

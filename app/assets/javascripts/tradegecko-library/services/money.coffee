@@ -1,6 +1,18 @@
-#= require accountingjs
+###cli
+`import Ember from 'ember'`
+`import Helpers from './helpers'`
+`import accounting from 'accounting'`
+###
 
-App.MoneyService = Ember.Object.extend
+###rails
+#= require accountingjs
+###
+
+#rails
+Helpers = App.Helpers if App
+#
+
+MoneyService = Ember.Object.extend
 
   ###
     Converts a value from the working currency to the base currency.
@@ -33,10 +45,9 @@ App.MoneyService = Ember.Object.extend
     return value unless currency = opts.from || opts.to
     return value unless rate = Ember.get(currency, 'rate')
     if opts.from
-      App.Helpers.op(value, 'div', rate)
+      Helpers.op(value, 'div', rate)
     else
-      App.Helpers.op(value, 'times', rate)
-
+      Helpers.op(value, 'times', rate)
 
   ###
     Formats a currency amount for display, according to the Currency
@@ -112,3 +123,11 @@ App.MoneyService = Ember.Object.extend
       format:    "%u%n"
       rate:      1
   ).property().volatile()
+
+#rails
+App.MoneyService = MoneyService
+#
+
+###cli
+`export default MoneyService`
+###

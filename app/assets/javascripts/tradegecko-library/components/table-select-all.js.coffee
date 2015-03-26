@@ -1,4 +1,7 @@
-App.TableSelectAllComponent = Ember.Component.extend
+###cli
+`import Ember from 'ember'`
+###
+TableSelectAllComponent = Ember.Component.extend
   classNames: "table-cell cell_select"
   layoutName: "table-select-all"
 
@@ -9,3 +12,11 @@ App.TableSelectAllComponent = Ember.Component.extend
     else
       @get('content').isEvery('selected')
   ).property('content.@each.selected')
+
+#rails
+App.TableSelectAllComponent = TableSelectAllComponent
+#
+
+###cli
+`export default TableSelectAllComponent`
+###

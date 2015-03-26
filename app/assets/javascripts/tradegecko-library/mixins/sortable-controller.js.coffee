@@ -1,4 +1,7 @@
-App.SortableControllerMixin = Ember.Mixin.create
+###cli
+`import Ember from 'ember'`
+###
+SortableControllerMixin = Ember.Mixin.create
   defaultSortProperty: 'id'
 
   setDefaults: ( ->
@@ -33,3 +36,11 @@ App.SortableControllerMixin = Ember.Mixin.create
       else
         @set('sortAscending', @get('defaultSortAscending'))
       @set('currentSort', value)
+
+#rails
+App.SortableControllerMixin = SortableControllerMixin
+#
+
+###cli
+`export default SortableControllerMixin`
+###

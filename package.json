@@ -1,6 +1,11 @@
 {
   "name": "tradegecko-library",
   "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tradegecko/tradegecko-library.git"
+  },
   "devDependencies": {
     "ember-template-compiler": "^1.9.0-alpha",
     "grunt": "^0.4.5",
