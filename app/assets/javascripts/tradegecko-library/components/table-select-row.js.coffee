@@ -9,7 +9,7 @@ TableSelectRowComponent = Ember.Component.extend
     event.stopPropagation()
 
 #rails
-App.TableSelectAllComponent = TableSelectAllComponent
+App.TableSelectRowComponent = TableSelectRowComponent
 #
 
 ###cli
