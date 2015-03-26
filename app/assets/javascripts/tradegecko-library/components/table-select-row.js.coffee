@@ -13,5 +13,5 @@ App.TableSelectRowComponent = TableSelectRowComponent
 #
 
 ###cli
-`export default TableSelectAllComponent`
+`export default TableSelectRowComponent`
 ###
