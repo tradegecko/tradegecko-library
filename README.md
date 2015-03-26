@@ -6,13 +6,30 @@ Examples: http://tradegecko-examples.herokuapp.com
 
 CSS Style Guide: https://gist.github.com/wongpeiyi/87cee67a2c2dd0215b0e
 
-## Installation
+## Rails Installation
 
 ```ruby
   gem 'tradegecko-library', git: "https://tradegecko-admin:L3AcU=yki9G-DNoh@github.com/tradegecko/tradegecko-library.git"
 ```
 
-## Usage
+## Ember CLI Installation
+
+Add to package.json
+
+```json
+  "devDependencies": {
+    "broccoli-replace": "^0.2.0",
+    "tradegecko-library": "git+ssh://git@github.com:tradegecko/tradegecko-library.git"
+  }
+```
+
+Then run:
+
+```bash
+  npm install --save-dev broccoli-replace
+```
+
+## Rails Usage
 
 In application.scss:
 
@@ -38,6 +55,44 @@ Or include only specific modules:
 ```coffeescript
 #= require tradegecko-library/extensions
 #= require tradegecko-library/helpers/helpers
+```
+
+## Ember CLI Usage
+
+These steps are necessary to keep it compatible with Rails at the same time. If we're using Ember CLI everywhere, we should modify the library and eliminate these additions.
+
+In Brocfile.js, replace:
+
+```javascript
+var app = new EmberApp();
+```
+
+With:
+
+```javascript
+  var replace = require('broccoli-replace');
+
+  var library = replace('node_modules/tradegecko-library/app/assets/javascripts/tradegecko-library', {
+    files: ['**/*.coffee'],
+    patterns: [{
+      match: /###cli\s([\s\S]*?)\s###/g,
+      replacement: '$1'
+    }]
+  });
+
+  var mergeTrees = require('broccoli-merge-trees');
+
+  var appTree    = mergeTrees(['app', library], { overwrite: true });
+  var vendorTree = mergeTrees(['vendor']);
+
+  var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+
+  var app = new EmberApp({
+    trees: {
+      app: appTree,
+      vendor: vendorTree
+    }
+  });
 ```
 
 ## Structure
@@ -68,6 +123,22 @@ Or include only specific modules:
         └── reorder-cell
         └── table-select-row
         └── table-select-all
+```
+
+## Rails / Ember CLI syntax
+
+Surround CLI-only code with `###cli ... ###`, e.g.
+```coffeescript
+  ###cli
+  `import Ember from 'ember'`
+  ###
+```
+
+Surround Rails-only code with `#rails ... #`, e.g.
+```coffeescript
+  #rails
+  App.FooComponent = FooComponent
+  #
 ```
 
 ## Test Setup
