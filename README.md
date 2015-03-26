@@ -23,11 +23,7 @@ Add to package.json
   }
 ```
 
-Then run:
-
-```bash
-  npm install --save-dev broccoli-replace
-```
+Then run `npm install`
 
 ## Rails Usage
 
@@ -77,6 +73,10 @@ With:
     patterns: [{
       match: /###cli\s([\s\S]*?)\s###/g,
       replacement: '$1'
+    },
+    {
+      match: /#rails\s([\s\S]*?)\s#/g,
+      replacement: '#'
     }]
   });
 
