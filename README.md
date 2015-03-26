@@ -66,35 +66,56 @@ var app = new EmberApp();
 With:
 
 ```javascript
-  var replace = require('broccoli-replace');
+var replace = require('broccoli-replace');
 
-  var library = replace('node_modules/tradegecko-library/app/assets/javascripts/tradegecko-library', {
-    files: ['**/*.coffee'],
-    patterns: [{
-      match: /###cli\s([\s\S]*?)\s###/g,
-      replacement: '$1'
-    },
-    {
-      match: /#rails\s([\s\S]*?)\s#/g,
-      replacement: '#'
-    }]
-  });
+//this replace task will uncomment parts pertaining to ember cli,
+//and remove parts that allow the app to work with global name spaced ember applications
+var library = replace('node_modules/tradegecko-library/app/assets/javascripts/tradegecko-library', {
+  files: ['**/*.coffee'],
+  patterns: [{
+    match: /###cli\s([\s\S]*?)\s###/g,
+    replacement: '$1'
+  },
+  {
+    match: /#rails\s([\s\S]*?)\s#/g,
+    replacement: '#'
+  }]
+});
 
-  var mergeTrees = require('broccoli-merge-trees');
+//you must then merge the library tree with the app tree
+var mergeTrees = require('broccoli-merge-trees');
 
-  var appTree    = mergeTrees(['app', library], { overwrite: true });
-  var vendorTree = mergeTrees(['vendor']);
+var appTree    = mergeTrees(['app', library], { overwrite: true });
+var vendorTree = mergeTrees(['vendor']);
 
-  var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-  var app = new EmberApp({
-    trees: {
-      app: appTree,
-      vendor: vendorTree
-    }
-  });
+// and finally initialize your app, with the trees you require.
+// this will override ember-cli defaults thats why you need to specify vendor aswell.
+var app = new EmberApp({
+  trees: {
+    app: appTree,
+    vendor: vendorTree
+  }
+});
+
 ```
 
+import modules
+```coffeescript
+import myModule from {applicationName}/path/to/module
+```
+
+services will be automatically loaded into the container
+```coffeescript
+@container.lookup('service:{servicename}')
+```
+import ember extensions, by adding an import for the extension you wan to use in app.js. the extension will extend ember objects so no need to worry about them again.
+
+```javascript
+import enumextensions from 'iguana/extensions/enumerable-extensions';
+import stringextensions from 'iguana/extensions/string-extensions';
+```
 ## Structure
 
 ```
