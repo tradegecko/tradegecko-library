@@ -27,4 +27,7 @@
     color: $green-link-h;
     text-decoration: underline;
   }
+  &:focus {
+    outline: 0;
+  }
 }
