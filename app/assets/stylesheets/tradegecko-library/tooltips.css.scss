@@ -17,6 +17,7 @@
   font-family: $font-base;
   font-size: 11px;
   line-height: 18px;
+  text-align: center;
   white-space: normal;
   background: #000;
   color: #fff;
@@ -71,6 +72,15 @@
   }
 }
 
+// Element that centers and position tooltip
+
+%tooltip + div {
+  position: absolute !important;
+  display: inline;
+}
+
+// Trigger element variations
+
 .tooltip_icon {
   @extend %tooltip;
   text-align: center;
@@ -89,14 +99,12 @@
 }
 
 .tooltip_cell {
-  span {
+  @extend .tooltip-block;
+  .tooltip_cell-text {
     @extend %tooltip;
-  }
-  span + div {
-    position: absolute !important;
-    width: inherit;
-    margin: -34px 0 0 -10px;
-    pointer-events: none;
+    + div {
+      margin-top: -34px;
+    }
   }
   .tooltip-text {
     text-shadow: none;

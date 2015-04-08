@@ -7,7 +7,7 @@ ReorderCellComponent = Ember.Component.extend
   href: "#"
   attributeBindings: "href"
   classNames: "table-cell"
-  classNameBindings: "isCurrent cellClassName".w()
+  classNameBindings: "isCurrent cellClassName tooltip:tooltip_cell".w()
 
   isCurrent: Ember.computed.boundEqual('collection.currentSort', 'sortOn')
 
