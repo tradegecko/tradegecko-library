@@ -64,7 +64,7 @@
   cursor: help;
   &:hover  + div > .tooltip-text,
   &.active + div > .tooltip-text,
-  + .tooltip-text:hover {
+  + div > .tooltip-text:hover {
     @include transition(opacity 0.1s ease-out, visibility 1ms);
     visibility: visible;
     opacity: 0.85;
@@ -85,5 +85,20 @@
   }
   &.tooltip_bottom + div {
     margin-top: 26px;
+  }
+}
+
+.tooltip_cell {
+  span {
+    @extend %tooltip;
+  }
+  span + div {
+    position: absolute !important;
+    width: inherit;
+    margin: -34px 0 0 -10px;
+    pointer-events: none;
+  }
+  .tooltip-text {
+    text-shadow: none;
   }
 }
