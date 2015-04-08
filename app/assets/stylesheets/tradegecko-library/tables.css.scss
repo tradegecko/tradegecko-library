@@ -132,12 +132,17 @@ a.table-row {
   }
 }
 
-.table-footer > a {
+.table-footer > a,
+.table-footer > button {
   float: left;
   width: 100%;
   .fa {
     margin-right: 5px;
   }
+}
+
+.table-footer > button {
+  @extend %text-link;
 }
 
 // Table controls
