@@ -71,15 +71,17 @@
 
 // Form table
 
-.table_form {
-  .table-row .table-cell {
-    position: relative;
-    border-right: 1px solid $grey-border;
-    &:last-of-type {
-      border-right: none;
-    }
+.table_form .table-row .table-cell,
+.table-row_form .table-cell {
+  position: relative;
+  border-right: 1px solid $grey-border;
+  &:last-of-type {
+    border-right: none;
   }
+}
 
+.table_form,
+.table-row_form {
   input[type="text"],
   input[type="number"],
   .field {
