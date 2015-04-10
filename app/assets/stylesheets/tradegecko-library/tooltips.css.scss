@@ -18,6 +18,7 @@
   font-size: 11px;
   line-height: 18px;
   text-align: center;
+  text-shadow: none;
   white-space: normal;
   background: #000;
   color: #fff;
@@ -54,8 +55,19 @@
 .tooltip_bottom + div > .tooltip-text {
   @include transform(none);
   &:before {
-    @include transform(rotateX(180deg));
+    @include transform(rotateZ(180deg));
     top: -4px;
+  }
+}
+
+.tooltip_right + div > .tooltip-text {
+  @include transform(none);
+  margin: 0;
+  &:before {
+    @include transform(rotateZ(90deg));
+    top: 50%;
+    left: -2px;
+    margin-top: -1px;
   }
 }
 
@@ -79,7 +91,9 @@
   display: inline;
 }
 
-// Trigger element variations
+/* ========================================================================= */
+/*   TOOLTIP ICON
+/* ========================================================================== */
 
 .tooltip_icon {
   @extend %tooltip;
@@ -98,15 +112,35 @@
   }
 }
 
+/* ========================================================================= */
+/*   TOOLTIP CELL
+/* ========================================================================== */
+
 .tooltip_cell {
   @extend .tooltip-block;
+  + div {
+    pointer-events: none;
+  }
+}
+
+.table-header .tooltip_cell {
+  text-align: center;
+  .tooltip_cell-text + div {
+    margin-top: -33px;
+  }
+}
+.table-row .tooltip_cell {
+  text-align: right;
   .tooltip_cell-text {
-    @extend %tooltip;
+    @extend .tooltip_right;
     + div {
-      margin-top: -34px;
+      margin-top: -38px;
     }
   }
-  .tooltip-text {
-    text-shadow: none;
-  }
+}
+
+.tooltip_cell-text {
+  @extend %truncate;
+  @extend %tooltip;
+  text-align: center;
 }
