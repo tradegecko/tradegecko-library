@@ -124,13 +124,13 @@
 }
 
 .table-header .tooltip_cell {
-  text-align: center;
+  text-align: center !important;
   .tooltip_cell-text + div {
     margin-top: -33px;
   }
 }
 .table-row .tooltip_cell {
-  text-align: right;
+  text-align: right !important;
   .tooltip_cell-text {
     @extend .tooltip_right;
     + div {
