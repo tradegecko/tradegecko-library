@@ -118,9 +118,6 @@
 
 .tooltip_cell {
   @extend .tooltip-block;
-  + div {
-    pointer-events: none;
-  }
 }
 
 .table-header .tooltip_cell {
@@ -143,4 +140,7 @@
   @extend %truncate;
   @extend %tooltip;
   text-align: center;
+  + div {
+    pointer-events: none;
+  }
 }
