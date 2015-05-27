@@ -1,3 +1,7 @@
+/* Button variables */
+$btn-border-radius: 3px;
+
+
 /* ========================================================================= */
 /*   BUTTONS
 /* ========================================================================= */
@@ -156,4 +160,161 @@
   &.right + &.right {
     margin-right: 10px;
   }
+}
+
+/* ========================================================================= */
+/*   NEW TRADEGECKO BUTTON
+/* ========================================================================= */
+
+@mixin btn {
+  font: {
+    family: $titleFontFamily;
+    size:   $font-size-small;
+    weight: $font-weight-bold;
+  }
+
+  text: {
+    align: center;
+    transform: uppercase;
+    shadow: none;
+  }
+
+  letter-spacing: 0.0625em;
+
+  display: inline-block;
+  padding: 10px 14px;
+
+  border: none;
+  border-radius: $btn-border-radius;
+
+  box-shadow:  none;
+
+  .fa {
+    font-size: 0.625em;
+    vertical-align: middle;
+  }
+
+  .btn-icon-left {
+    margin-right: 0.875em;
+  }
+
+  .btn-icon-right {
+    margin-left: 0.875em;
+  }
+
+  &:hover, &:focus {
+    text-decoration: none;
+    cursor: pointer;
+    outline: 0;
+    outline: none;
+  }
+
+  @include transition(all, 0.3s);
+
+  &[disabled], &[disabled]:hover {
+    cursor: normal;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+@mixin btn-theme($main, $hover, $active, $border, $text, $text-hover) {
+  color: $text;
+  background: $main;
+  border: 1px solid $border;
+
+  &:hover, &:focus {
+    background: $hover;
+    color: $text-hover;
+  }
+
+  &:active, &.active {
+    background: $active;
+  }
+}
+
+.btn-green {
+  @include btn;
+  @include btn-theme(
+    $geckogreen,
+    $geckogreen-dark,
+    $geckogreen-dark,
+    transparent,
+    $white,
+    $white
+  );
+}
+
+.btn-red {
+  @include btn;
+  @include btn-theme(
+    $red,
+    darken($red, 10%),
+    darken($red, 10%),
+    transparent,
+    $white,
+    $white
+  );
+}
+
+.btn-blue {
+  @include btn;
+  @include btn-theme(
+    $blue,
+    darken($blue, 10%),
+    darken($blue, 10%),
+    transparent,
+    $white,
+    $white
+  );
+}
+
+.btn-yellow {
+  @include btn;
+  @include btn-theme(
+    $yellow,
+    darken($yellow, 10%),
+    darken($yellow, 10%),
+    transparent,
+    $white,
+    $white
+  );
+}
+
+.btn-grey {
+  @include btn;
+  @include btn-theme(
+    $grey-dark-2,
+    darken($grey-dark-2, 10%),
+    darken($grey-dark-2, 10%),
+    transparent,
+    $white,
+    $white
+  );
+}
+
+.btn-light-grey {
+  @include btn;
+  @include btn-theme(
+    $grey-main,
+    $grey-dark,
+    $grey-dark,
+    transparent,
+    $grey-text,
+    $grey-text
+  );
+}
+
+.btn-disabled {
+  @include btn;
+  @include btn-theme(
+    transparent,
+    transparent,
+    transparent,
+    $darker-grey-text,
+    $darker-grey-text,
+    $darker-grey-text
+  );
+  border: 1px solid $darker-grey-text;
+  &[disabled], &[disabled]:hover { opacity: 1; }
 }
