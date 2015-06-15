@@ -63,19 +63,22 @@ HelpersService = Ember.Object.extend
 
   ###
     Rounds a number to the specified precision.
-    Uses the defaultCurrency's precision by default
 
     @param {Number} number
       The value to be rounded
 
     @param {Number} precision
-      Number of decimal places to round to. Can be omitted.
+      Number of decimal places to round to.
   ###
 
   roundNumber: (number, precision) ->
     unless precision
-      return number unless @get('defaultCurrency')
-      precision = @get('defaultCurrency.precision')
+      try
+        throw "Precision Missing"
+      catch ex
+        Raven.captureException(ex)
+        return number unless @get('defaultCurrency')
+        precision = @get('defaultCurrency.precision')
     factor = Math.pow(10, precision)
     factoredNumber = @op(number, 'times', factor)
 
