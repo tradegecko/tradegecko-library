@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'TradeGecko';
+  src:url('TradeGecko.eot');
+  src:url('TradeGecko.eot?#iefix') format('embedded-opentype'),
+    url('TradeGecko.svg#icomoon') format('svg'),
+    url('TradeGecko.woff') format('woff'),
+    url('TradeGecko.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.tg {
+  display: inline-block;
+  font: normal normal normal 14px/1 TradeGecko;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+
+.tg-icon:before {
+  content:"\e600";
+}
+
+.tg-box:before {
+  content:"\e601";
+}
+
+.tg-dashboard:before {
+  content:"\e602";
+}
+
+.tg-user:before {
+  content:"\e603";
+}
+
+.tg-orders:before {
+  content:"\e604";
+}
+
+.tg-purchase-orders:before {
+  content:"\e605";
+}
+
+.tg-stock-control:before {
+  content:"\e606";
+}
+
+.tg-reports:before {
+  content:"\e607";
+}
+
+.tg-app-store:before {
+  content:"\e608";
+}
+
+.tg-my-apps:before {
+  content:"\e609";
+}
+
+.tg-settings:before {
+  content:"\e60a";
+}
