@@ -1,6 +1,9 @@
 module "App.HelpersService",
   beforeEach: ->
     @service = App.Helpers
+    window.Raven =
+      captureException: (exception) ->
+        @lastException = exception
 
 test "parseNumber", ->
   equal @service.parseNumber("3.3", 4), 3.3,  "parses string into float"
@@ -26,4 +29,9 @@ test "roundNumber", ->
   equal @service.roundNumber(1.23456, 3), 1.235,      "rounds correctly"
   equal @service.roundNumber(-1.575, 2), -1.58,       "rounds negatives correctly"
   equal @service.roundNumber("1.23456", "3"), 1.235,  "works with strings"
+  equal @service.roundNumber(1.23456, 0), 1,          "Doesn't break on 0 precision (falsy)"
+  ok !Raven.lastException,                            "no exceptions"
+
   equal @service.roundNumber(1.23456), 1.23456,       "returns unrounded if no precision"
+  equal Raven.lastException, "DEPRECATION: Precision Missing",     "throws a precision error"
+  delete Raven.lastException

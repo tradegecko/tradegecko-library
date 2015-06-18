@@ -72,11 +72,11 @@ HelpersService = Ember.Object.extend
   ###
 
   roundNumber: (number, precision) ->
-    unless precision
+    if precision is undefined
       try
-        throw "Precision Missing"
+        throw "DEPRECATION: Precision Missing"
       catch ex
-        Raven.captureException(ex)
+        window.Raven.captureException(ex)
         return number unless @get('defaultCurrency')
         precision = @get('defaultCurrency.precision')
     factor = Math.pow(10, precision)
