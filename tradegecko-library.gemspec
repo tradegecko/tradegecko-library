@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "tradegecko-library"
   spec.version       = Tradegecko::Library::VERSION
   spec.authors       = ["Wong Pei Yi"]
-  spec.email         = ["wongpeiyi@gmail.com"]
+  spec.email         = ["peter@tradegecko.com"]
   spec.summary       = %q{Shared styles and components library for TradeGecko apps}
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/tradegecko/tradegecko-library"
