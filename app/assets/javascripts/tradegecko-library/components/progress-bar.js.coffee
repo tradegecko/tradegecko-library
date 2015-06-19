@@ -2,6 +2,7 @@
 `import Ember from 'ember'`
 ###
 ProgressBarComponent = Ember.Component.extend
+  layoutName: "progress-bar"
   classNames: ["progressbar"]
 
   percent: null
@@ -11,7 +12,7 @@ ProgressBarComponent = Ember.Component.extend
   ).property("percent")
 
 #rails
-App.ProgressBarComponent= ProgressBarComponent
+App.ProgressBarComponent = ProgressBarComponent
 #
 
 ###cli
