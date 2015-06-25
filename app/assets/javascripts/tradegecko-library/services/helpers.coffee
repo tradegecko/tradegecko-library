@@ -72,7 +72,7 @@ HelpersService = Ember.Object.extend
   ###
 
   roundNumber: (number, precision) ->
-    if precision is undefined
+    if Ember.isNone(precision)
       try
         throw "DEPRECATION: Precision Missing"
       catch ex
