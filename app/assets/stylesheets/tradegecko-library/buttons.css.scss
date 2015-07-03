@@ -187,7 +187,7 @@ $btn-border-radius: 3px;
   border: none;
   border-radius: $btn-border-radius;
 
-  box-shadow:  none;
+  box-shadow: none;
 
   .fa {
     font-size: 0.625em;
@@ -218,7 +218,7 @@ $btn-border-radius: 3px;
   }
 }
 
-@mixin btn-theme($main, $hover, $active, $border, $text, $text-hover) {
+@mixin btn-theme($main, $hover, $active, $border: transparent, $text: $white, $text-hover: $white) {
   color: $text;
   background: $main;
   border: 1px solid $border;
@@ -238,10 +238,7 @@ $btn-border-radius: 3px;
   @include btn-theme(
     $geckogreen,
     $geckogreen-dark,
-    $geckogreen-dark,
-    transparent,
-    $white,
-    $white
+    $geckogreen-dark
   );
 }
 
@@ -250,10 +247,7 @@ $btn-border-radius: 3px;
   @include btn-theme(
     $red,
     darken($red, 10%),
-    darken($red, 10%),
-    transparent,
-    $white,
-    $white
+    darken($red, 10%)
   );
 }
 
@@ -262,10 +256,7 @@ $btn-border-radius: 3px;
   @include btn-theme(
     $blue,
     darken($blue, 10%),
-    darken($blue, 10%),
-    transparent,
-    $white,
-    $white
+    darken($blue, 10%)
   );
 }
 
@@ -274,10 +265,7 @@ $btn-border-radius: 3px;
   @include btn-theme(
     $yellow,
     darken($yellow, 10%),
-    darken($yellow, 10%),
-    transparent,
-    $white,
-    $white
+    darken($yellow, 10%)
   );
 }
 
@@ -286,10 +274,7 @@ $btn-border-radius: 3px;
   @include btn-theme(
     $grey-dark-2,
     darken($grey-dark-2, 10%),
-    darken($grey-dark-2, 10%),
-    transparent,
-    $white,
-    $white
+    darken($grey-dark-2, 10%)
   );
 }
 
