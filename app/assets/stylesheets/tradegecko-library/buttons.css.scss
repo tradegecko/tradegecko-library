@@ -233,7 +233,7 @@ $btn-border-radius: 3px;
   }
 }
 
-.btn-green {
+.tg-btn-green {
   @include btn;
   @include btn-theme(
     $geckogreen,
@@ -242,7 +242,7 @@ $btn-border-radius: 3px;
   );
 }
 
-.btn-red {
+.tg-btn-red {
   @include btn;
   @include btn-theme(
     $red,
@@ -251,7 +251,7 @@ $btn-border-radius: 3px;
   );
 }
 
-.btn-blue {
+.tg-btn-blue {
   @include btn;
   @include btn-theme(
     $blue,
@@ -260,7 +260,7 @@ $btn-border-radius: 3px;
   );
 }
 
-.btn-yellow {
+.tg-btn-yellow {
   @include btn;
   @include btn-theme(
     $yellow,
@@ -269,7 +269,7 @@ $btn-border-radius: 3px;
   );
 }
 
-.btn-grey {
+.tg-btn-grey {
   @include btn;
   @include btn-theme(
     $grey-dark-2,
@@ -278,7 +278,7 @@ $btn-border-radius: 3px;
   );
 }
 
-.btn-light-grey {
+.tg-btn-light-grey {
   @include btn;
   @include btn-theme(
     $grey-main,
@@ -290,7 +290,7 @@ $btn-border-radius: 3px;
   );
 }
 
-.btn-disabled {
+.tg-btn-disabled {
   @include btn;
   @include btn-theme(
     transparent,
