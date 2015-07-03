@@ -3,7 +3,7 @@
 /* ========================================================================= */
 
 $font-base:       "Helvetica Neue", Helvetica, Arial, sans-serif;
-$sansFontFamily:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sansFontFamily:  "Open Sans", $font-base;
 $titleFontFamily: "Raleway", $sansFontFamily;
 
 $font-size-small:      12px;
