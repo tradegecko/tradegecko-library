@@ -73,12 +73,10 @@ HelpersService = Ember.Object.extend
 
   roundNumber: (number, precision) ->
     if Ember.isNone(precision)
-      try
-        throw "DEPRECATION: Precision Missing"
-      catch ex
-        window.Raven.captureException(ex)
-        return number unless @get('defaultCurrency')
-        precision = @get('defaultCurrency.precision')
+      tags = {number: number, self: @toString(), defaultCurrency: @get('defaultCurrency')}
+      window.Raven.captureMessage("DEPRECATION: Precision Missing", tags: tags)
+      return number unless @get('defaultCurrency')
+      precision = @get('defaultCurrency.precision')
     factor = Math.pow(10, precision)
     factoredNumber = @op(number, 'times', factor)
 

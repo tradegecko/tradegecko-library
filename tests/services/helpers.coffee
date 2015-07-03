@@ -4,6 +4,8 @@ module "App.HelpersService",
     window.Raven =
       captureException: (exception) ->
         @lastException = exception
+      captureMessage: (message) ->
+        @lastException = message
 
 test "parseNumber", ->
   equal @service.parseNumber("3.3", 4), 3.3,  "parses string into float"
