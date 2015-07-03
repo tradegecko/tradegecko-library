@@ -2,7 +2,17 @@
 /*   TYPOGRAPHY
 /* ========================================================================= */
 
-$font-base:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-base:       "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sansFontFamily:  "Open Sans", $font-base;
+$titleFontFamily: "Raleway", $sansFontFamily;
+
+$font-size-small:      12px;
+$font-size-regular:    16px;
+$font-size-large:      24px;
+
+$font-weight-light:    300;
+$font-weight-regular:  400;
+$font-weight-bold:     600;
 
 /* ========================================================================= */
 /*   COLORS
@@ -15,12 +25,30 @@ $green:      #7bda3d;
 $green-bg-h: #f5fcf1;
 $geckogreen: #70cf32;
 
+$geckogreen:       #70cf32;
+$geckogreen-dark:  #62bf25;
+
 // Text Greens
 
 $green-link:   #4cae41;
 $green-link-h: #39af3f;
 
-// Greys
+// Blue
+$blue: #00a5ff;
+
+// Red
+$red: #d9534f;
+
+// Yellow
+$yellow: rgb(230, 196, 130);
+
+// Solid Greys
+$grey-main: #e2e4e8;
+$grey-dark: #d3dadc;
+$grey-dark-2: #6a6a68;
 
 $grey-border: #c4c4c4;
-$grey: #e2e4e6;
+
+// Text Greys
+$grey-text:        #565f66;
+$darker-grey-text: #afafaf;
