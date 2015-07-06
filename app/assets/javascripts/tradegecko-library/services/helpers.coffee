@@ -72,8 +72,9 @@ HelpersService = Ember.Object.extend
   ###
 
   roundNumber: (number, precision) ->
+    return number if number == 0
     if Ember.isNone(precision)
-      tags = {number: number, self: @toString(), defaultCurrency: @get('defaultCurrency')}
+      tags = {number: number, precision: precision, self: @toString(), defaultCurrency: @get('defaultCurrency')}
       window.Raven.captureMessage("DEPRECATION: Precision Missing", tags: tags)
       return number unless @get('defaultCurrency')
       precision = @get('defaultCurrency.precision')
