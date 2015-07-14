@@ -301,5 +301,6 @@ $btn-border-radius: 3px;
     $darker-grey-text
   );
   border: 1px solid $darker-grey-text;
-  &[disabled], &[disabled]:hover { opacity: 1; }
+  cursor: normal;
+  pointer-events: none;
 }
