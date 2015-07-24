@@ -166,7 +166,7 @@ $btn-border-radius: 3px;
 /*   NEW TRADEGECKO BUTTON
 /* ========================================================================= */
 
-@mixin btn {
+.tg-btn {
   font: {
     family: $titleFontFamily;
     size:   $font-size-small;
@@ -233,7 +233,6 @@ $btn-border-radius: 3px;
 }
 
 .tg-btn-green {
-  @include btn;
   @include btn-theme(
     $geckogreen,
     $geckogreen-dark,
@@ -242,7 +241,6 @@ $btn-border-radius: 3px;
 }
 
 .tg-btn-red {
-  @include btn;
   @include btn-theme(
     $red,
     darken($red, 10%),
@@ -251,7 +249,6 @@ $btn-border-radius: 3px;
 }
 
 .tg-btn-blue {
-  @include btn;
   @include btn-theme(
     $blue,
     darken($blue, 10%),
@@ -260,7 +257,6 @@ $btn-border-radius: 3px;
 }
 
 .tg-btn-yellow {
-  @include btn;
   @include btn-theme(
     $yellow,
     darken($yellow, 10%),
@@ -269,7 +265,6 @@ $btn-border-radius: 3px;
 }
 
 .tg-btn-grey {
-  @include btn;
   @include btn-theme(
     $grey-dark-2,
     darken($grey-dark-2, 10%),
@@ -278,7 +273,6 @@ $btn-border-radius: 3px;
 }
 
 .tg-btn-light-grey {
-  @include btn;
   @include btn-theme(
     $grey-main,
     $grey-dark,
@@ -290,7 +284,6 @@ $btn-border-radius: 3px;
 }
 
 .tg-btn-disabled {
-  @include btn;
   @include btn-theme(
     transparent,
     transparent,
