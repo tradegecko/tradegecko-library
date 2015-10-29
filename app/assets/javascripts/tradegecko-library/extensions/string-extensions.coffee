@@ -6,6 +6,7 @@ Humanized =
   'orderLineItem':        "Line Item"
   'order':                "Sales Order"
   'constructorClassName': "Type"
+  'cogs': "COGS"
 
 StringExtensions = Ember.Mixin.create
   ###
