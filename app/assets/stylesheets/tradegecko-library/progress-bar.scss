@@ -6,14 +6,15 @@
   background: $grey-main;
   border-radius: 3px;
 
+  &.jump .fill {
+    transition: width 0.2s ease-in;
+  }
+
   .fill {
     display: block;
     background: $geckogreen;
     border-radius: 3px;
     height: 6px;
     transition: width 2s ease-in-out;
-    &.jump {
-      transition: width 0.2s ease-in;
-    }
   }
 }
