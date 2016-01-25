@@ -116,6 +116,7 @@ MoneyService = Ember.Object.extend
 
   defaultCurrency: ( ->
     @container?.lookup("current:account")?.get('defaultCurrency') ||
+    @container?.lookup('service:session')?.get('account.defaultCurrency') ||
       symbol:    "$"
       precision:  2
       decimal:   "."
