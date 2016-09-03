@@ -9,7 +9,7 @@
 ###
 
 #rails
-Helpers = App.Helpers if App
+Helpers = App.Helpers if window.App
 #
 
 MoneyService = Ember.Object.extend
