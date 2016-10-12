@@ -22,9 +22,7 @@ module.exports = function(grunt) {
           'tests/tmp/app.js': [
             'app/assets/javascripts/tradegecko-library/extensions/*.coffee',
             'app/assets/javascripts/tradegecko-library/services/*.coffee',
-            'app/assets/javascripts/tradegecko-library/mixins/*.coffee',
             'app/assets/javascripts/tradegecko-library/components/*.coffee',
-            'app/assets/javascripts/tradegecko-library/templates/*.coffee',
           ]
         }
       },
