@@ -9,20 +9,19 @@ ReorderCellComponent = Ember.Component.extend
   classNames: "table-cell"
   classNameBindings: "isCurrent cellClassName tooltip:tooltip_cell".w()
 
-  isCurrent: Ember.computed.boundEqual('collection.currentSort', 'sortOn')
+  isCurrent: Ember.computed 'collection.currentSort', 'sortOn', ->
+    this.get('collection.currentSort') == this.get('sortOn')
 
-  cellClassName: ( ->
+  cellClassName: Ember.computed 'sortOn', ->
     # Humanize to get last property, then dasherize
     "cell_" + @get('sortOn').humanize().dasherize()
-  ).property('sortOn')
 
   click: (event) ->
     event.preventDefault()
     @get('collection').send('sortOn', @get("sortOn"))
 
-  cellText: ( ->
+  cellText: Ember.computed 'label', ->
     @get("label") || Ember.String.humanize(@get("sortOn"))
-  ).property("label")
 
 #rails
 App.ReorderCellComponent = ReorderCellComponent
