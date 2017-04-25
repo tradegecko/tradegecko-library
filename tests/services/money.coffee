@@ -19,6 +19,12 @@ test "format", ->
 
   equal @service.format(123.456, "inherit", symbol: false), "123.46",
         "excludes symbol if symbol: false"
+  equal @service.format(123.456, "inherit", symbol: null), "$123.46",
+        "ignores symbol option if symbol: null"
+  equal @service.format(123.456, "inherit", symbol: undefined), "$123.46",
+        "ignores symbol option if symbol: undefined"
+  equal @service.format(123.456, "inherit", symbol: 'SGD'), "SGD123.46",
+        "formats custom if symbol: 'SGD'"
 
   currency = @service.get('defaultCurrency')
   currency.precision = 1
