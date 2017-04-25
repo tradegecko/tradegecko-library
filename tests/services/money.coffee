@@ -3,12 +3,12 @@ module "App.MoneyService",
     @service = App.MoneyService.create()
 
 test "convert", ->
-  equal @service.convert(100, from: rate: 1.25), 80,  "converts to base currency"
-  equal @service.convert(100, to: rate: 1.25), 125,   "converts to working currency"
-  equal @service.convert(1.2, from: rate: 0.4), 3,    "does math properly"
+  equal @service.convert(100, from: 1.25), 80,  "converts to base currency"
+  equal @service.convert(100, to: 1.25), 125,   "converts to working currency"
+  equal @service.convert(1.2, from: 0.4), 3,    "does math properly"
   equal @service.convert(1.1, from: null), 1.1,       "returns value if no currency"
-  equal @service.convert(1.1, from: rate: null), 1.1, "returns value if no rate"
-  ok !@service.convert(null, from: rate: 1),          "returns false if no value"
+  equal @service.convert(1.1, from: null), 1.1, "returns value if no rate"
+  ok !@service.convert(null, from: 1),          "returns false if no value"
 
 test "format", ->
   _accounting = accounting
