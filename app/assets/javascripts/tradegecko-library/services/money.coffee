@@ -85,8 +85,6 @@ MoneyService = Ember.Object.extend
     if opts.symbol == false
       props.symbol = ""
       props.format = "%n"
-    else if opts.symbol?
-      props.symbol = opts.symbol
     # Catch Rails error if precision is too large
     props.precision = 6 if props.precision > 20
     accounting.formatMoney(value, props)
