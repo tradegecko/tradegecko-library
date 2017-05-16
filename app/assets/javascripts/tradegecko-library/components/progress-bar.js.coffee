@@ -18,9 +18,8 @@ ProgressBarComponent = Ember.Component.extend
 
   percent: null
 
-  width: ( ->
-    "width: #{@get('percent')}%"
-  ).property("percent")
+  width: Ember.computed 'percent', ->
+    Ember.String.htmlSafe "width: #{+@get('percent')}%"
 
 #rails
 App.ProgressBarComponent = ProgressBarComponent
