@@ -32,6 +32,7 @@ StringExtensions = Ember.Mixin.create
     value = value.split(".").get('lastObject')
     # Split words and capitalize each word
     value.underscore().split("_").map((string) ->
+      string = string.replace('cogs', 'COGS')
       string.charAt(0).toUpperCase() + string.slice(1)
     ).join(" ")
 

@@ -9,7 +9,7 @@
 ###
 
 #rails
-Helpers = App.Helpers if App
+Helpers = App.Helpers if window.App
 #
 
 MoneyService = Ember.Object.extend
@@ -18,8 +18,8 @@ MoneyService = Ember.Object.extend
     Converts a value from the working currency to the base currency.
           - OR -     from the base currency to the working currency.
 
-    E.g. `App.Money.convert(orderTotal, from: currency)`
-         `App.Money.convert(baseTotal, to: currency)`
+    E.g. `App.Money.convert(orderTotal, from: rate)`
+         `App.Money.convert(baseTotal, to: rate)`
 
     Note: currency `rate` is in BASE/WORKING
     E.g. Base currency:    SGD
@@ -33,17 +33,17 @@ MoneyService = Ember.Object.extend
     @param {Object} opts
       Object with one of the following keys:
 
-        `from:` {Currency object with `rate` property}
-        Converts from the currency object to the base currency
+        `from:` rate
+        Converts working currency to base currency
 
-        `to:` {Currency object with `rate` property}
-        Converts to the currency object from the base currency
+        `to:` rate
+        Converts base currency to working currency
   ###
 
   convert: (value, opts={}) ->
     return unless value
-    return value unless currency = opts.from || opts.to
-    return value unless rate = Ember.get(currency, 'rate')
+    return value unless rate = opts.from || opts.to
+
     if opts.from
       Helpers.op(value, 'div', rate)
     else
@@ -116,6 +116,7 @@ MoneyService = Ember.Object.extend
 
   defaultCurrency: ( ->
     @container?.lookup("current:account")?.get('defaultCurrency') ||
+    @container?.lookup('service:session')?.get('account.defaultCurrency') ||
       symbol:    "$"
       precision:  2
       decimal:   "."

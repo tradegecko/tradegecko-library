@@ -1,5 +1,5 @@
 module Tradegecko
   module Library
-    VERSION = "0.0.8"
+    VERSION = "0.1.2"
   end
 end

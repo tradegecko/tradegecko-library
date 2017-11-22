@@ -134,12 +134,9 @@ import stringextensions from 'iguana/extensions/string-extensions';
     └── extensions
         └── enumerable-extensions
         └── string-extensions
-        └── ember-computed
     └── services
         └── helpers
         └── money
-    └── mixins
-        └── sortable-controller
     └── components (+templates)
         └── reorder-cell
         └── table-select-row

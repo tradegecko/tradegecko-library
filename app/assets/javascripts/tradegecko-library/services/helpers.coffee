@@ -71,11 +71,19 @@ HelpersService = Ember.Object.extend
       Number of decimal places to round to.
   ###
 
-  roundNumber: (number, precision) ->
+  roundNumber: (number, precision, _object, _string) ->
     return number if number == 0
     if Ember.isNone(precision)
-      tags = {number: number, precision: precision, self: @toString(), defaultCurrency: @get('defaultCurrency')}
-      window.Raven.captureMessage("DEPRECATION: Precision Missing", tags: tags)
+      # unless @notifiedDeprecation
+      #   tags = {
+      #     number: number,
+      #     defaultCurrency: @get('defaultCurrency'),
+      #     object: _object,
+      #     string: _string
+      #   }
+      #   window.Raven.captureMessage("DEPRECATION: Precision Missing", tags: tags)
+      #   @notifiedDeprecation = true
+
       return number unless @get('defaultCurrency')
       precision = @get('defaultCurrency.precision')
     factor = Math.pow(10, precision)
