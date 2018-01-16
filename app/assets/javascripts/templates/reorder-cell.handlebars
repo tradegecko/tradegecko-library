@@ -1,0 +1,11 @@
+<div {{bind-attr class="tooltip:tooltip_cell-text"}}>
+  {{cellText~}}
+  {{#if isCurrent~}}
+    <i {{bind-attr class=":fa collection.sortAscending:fa-caret-up:fa-caret-down"}}></i>
+  {{/if}}
+</div>
+{{#if tooltip}}
+  <div>
+    <div class="tooltip-text">{{{tooltip}}}</div>
+  </div>
+{{/if}}
