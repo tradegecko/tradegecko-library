@@ -12,6 +12,29 @@
 Helpers = App.Helpers if window.App
 #
 
+# Remove when possible
+op = (first, operator, second) ->
+  throw "Requires Big.js" if typeof Big is "undefined"
+  return NaN if (isNaN(first) || isNaN(second))
+  # parseNumbers
+  first  = +first
+  second = +second
+  if operator == "div" && second == 0
+    # Handle division by zero
+    return NaN if first == 0
+    if first > 0 then Infinity else -Infinity
+  # Handle the infinities because Big.js doesn't
+  else if Math.abs(first) == Infinity || Math.abs(second) == Infinity
+    operatorMap =
+      plus:  "+"
+      minus: "-"
+      times: "*"
+      div:   "/"
+    op = operatorMap[operator]
+    eval "#{first} #{op} #{second}"
+  else
+    +Big(first)[operator](second)
+
 MoneyService = Ember.Object.extend
 
   ###
@@ -45,9 +68,9 @@ MoneyService = Ember.Object.extend
     return value unless rate = opts.from || opts.to
 
     if opts.from
-      Helpers.op(value, 'div', rate)
+      op(value, 'div', rate)
     else
-      Helpers.op(value, 'times', rate)
+      op(value, 'times', rate)
 
   ###
     Formats a currency amount for display, according to the Currency
