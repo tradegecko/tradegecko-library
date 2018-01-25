@@ -19,11 +19,6 @@ module.exports = function(grunt) {
       compile: {
         files: {
           'tests/tmp/compiled.js': ['tests/**/*.coffee'],
-          'tests/tmp/app.js': [
-            'app/assets/javascripts/tradegecko-library/extensions/*.coffee',
-            'app/assets/javascripts/tradegecko-library/services/*.coffee',
-            'app/assets/javascripts/tradegecko-library/components/*.coffee',
-          ]
         }
       },
     },
