@@ -1,33 +1,7 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset='UTF-8' />
-    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+<!DOCTYPE html>
+<title>Need tests for tests to pass :grimacing:</title>
+<script src="../bower_components/qunit/qunit/qunit.js"></script>
 
-    <title>TradeGecko Library Tests</title>
-
-    <link rel='stylesheet' href='../bower_components/qunit/qunit/qunit.css'>
-
-    <!-- Core Libraries -->
-    <script src='../bower_components/handlebars/handlebars.js'></script>
-    <script src='../bower_components/jquery/dist/jquery.js'></script>
-    <script src='../bower_components/ember/ember.js'></script>
-    <script src='../bower_components/qunit/qunit/qunit.js'></script>
-
-    <!-- Required Libraries -->
-    <script src='../bower_components/big.js/big.js'></script>
-    <script src='lib/accounting.js'></script>
-  </head>
-  <body>
-    <div id="qunit"></div>
-    <div id='qunit-fixture'></div>
-
-    <!-- App -->
-    <script>window.App = Ember.Application.create()</script>
-    <script src='tmp/templates.js'></script>
-    <script src='tmp/app.js'></script>
-
-    <!-- Tests -->
-    <script src='tmp/compiled.js'></script>
-  </body>
-</html>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src='tmp/compiled.js'></script>
