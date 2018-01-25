@@ -15,8 +15,6 @@ test "maxBy", ->
 
 test "sum", ->
   _big = Big
-  window.Big = undefined
-  throws App.Helpers.op, "Requires Big.js", "throws Error if Big.js is not required"
   window.Big = _big
 
   equal [1,2,3].sum(), 6,      "sums array elements"
