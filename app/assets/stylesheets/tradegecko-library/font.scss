@@ -51,11 +51,11 @@
   content: "\e607";
 }
 
-.tg-app-store:before {
+.tg-my-apps:before {
   content: "\e608";
 }
 
-.tg-my-apps:before {
+.tg-folder:before {
   content: "\e609";
 }
 
@@ -292,5 +292,9 @@
 }
 
 .tg-business:before {
+  content: "\e644"
+}
+
+.tg-app-store:before {
   content: "\e644"
 }
